@@ -1,15 +1,11 @@
-from pynput.keyboard import Key,Controller
+import pyautogui
 import time
 import os
 
-Keyboard = Controller()
 
-print("Enter Count")
-count = int(input())
-print("Enter Message")
-message = input()
-print("Enter End Message")
-endMessage = input()
+count = int(input("Enter Count : "))
+message = input("Enter Message : ")
+endMessage = input("Enter End Message If You Want : ")
 
 n = 10
 
@@ -25,12 +21,8 @@ print("Spam Bot is started...")
 
 
 def send(message):
-    for letter in message:
-        Keyboard.press(letter)
-        Keyboard.release(letter)
-
-    Keyboard.press(Key.enter)
-    Keyboard.release(Key.enter)
+    pyautogui.typewrite(message)
+    pyautogui.press("Enter")
 
 
 while count:
